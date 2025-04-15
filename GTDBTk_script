@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Activate your conda environment
+source ~/.bashrc
+conda activate geomosaic
+
+# Set paths
+GENOME_DIR=/ibiscostorage/fmigliaccio/fmontemagno/mags_analysis/all_mags
+OUTPUT_DIR=/ibiscostorage/fmigliaccio/fmontemagno/mags_analysis/output/gtdktk
+DB_PATH=/ibiscostorage/GiovannelliLab/db/geomosaic_extdb/mags_gtdbtk_extdb
+MASH_DB=${DB_PATH}/mash_db_gtdbtk.msh
+DATA_PATH=${DB_PATH}/release220
+
+# Run GTDB-Tk classify workflow
+GTDBTK_DATA_PATH=$DATA_PATH gtdbtk classify_wf \
+    --genome_dir "$GENOME_DIR" \
+    --out_dir "$OUTPUT_DIR" \
+    --cpus 12 \
+    --mash_db "$MASH_DB" \
+    --extension fa
