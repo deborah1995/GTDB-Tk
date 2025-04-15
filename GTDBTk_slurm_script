@@ -2,9 +2,11 @@
 #SBATCH --job-name=gtdbtk_all
 #SBATCH --output=gtdbtk_all.out
 #SBATCH --error=gtdbtk_all.err
-#SBATCH --time=48:00:00
-#SBATCH --mem=64G
-#SBATCH --cpus-per-task=12
+#SBATCH --time=96:00:00
+#SBATCH --mem=250G
+#SBATCH --cpus-per-task=30
+#SBATCH --partition=parallel
+
 
 # Run GTDB-Tk script
 bash run_gtdbtk.sh
